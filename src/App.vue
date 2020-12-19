@@ -1,3 +1,15 @@
+スポンサーリンク
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- chat_app -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2223806313871416"
+     data-ad-slot="7356835981"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <template>
   <div id="app">
     <header class="header">

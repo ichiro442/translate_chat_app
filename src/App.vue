@@ -5,11 +5,11 @@
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div v-if="user.uid" key="login">
         [{{ user.displayName }}]
-        <button type="button" @click="doLogout">ログアウト</button>
+        <button type="button" @click="doLogout">Logout</button>
       </div>
       <!-- 未ログイン時にはログインボタンを表示 -->
       <div v-else key="logout">
-        <button type="button" @click="doLogin">ログイン</button>
+        <button type="button" @click="doLogin">Login</button>
       </div>
     </header>
 

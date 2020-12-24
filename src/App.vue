@@ -22,7 +22,6 @@
           <div class="item-name">{{ name }}</div>
           <div class="item-message">
             <nl2br tag="div" :text="message"/>
-            <p id="lists"></p>
           </div>
         </div>
       </section>
@@ -32,12 +31,12 @@
     <form action="" @submit.prevent="doSend" class="form">
       <!-- submitが押されたら画面遷移をさせないpreventでdoSendを発動させるよ -->
       <textarea
-        id="input"
+        placeholder="enter in English"
         v-model="input"
         :disabled="!user.uid"
         @keydown.enter.exact.prevent="doSend"></textarea>
         <!-- v-onv-bindをまとめて書いたv-modelでinputという変数 disabled無効にするuserがidをもっていなければ. keydown.enterはenterキーで動かすってこと exact精密にいうとimportant的な意味なのかな -->
-      <button id="addBtn" type="submit" :disabled="!user.uid" class="send-button">Send</button>
+      <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
       <!-- useeridなければ無効化させるよ  -->
     </form>
   </div>

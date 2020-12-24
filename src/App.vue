@@ -34,7 +34,9 @@
         placeholder="enter in English"
         v-model="input"
         :disabled="!user.uid"
-        @keydown.enter.exact.prevent="doSend"></textarea>
+        @keydown.enter="trigger"></textarea>
+        <label>ja</label><input type="checkbox" v-model="langBefore"  value="en">
+        <label>en</label><input type="checkbox" v-model="langAfter"  value="ja">
         <!-- v-onv-bindをまとめて書いたv-modelでinputという変数 disabled無効にするuserがidをもっていなければ. keydown.enterはenterキーで動かすってこと exact精密にいうとimportant的な意味なのかな -->
       <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
       <!-- useeridなければ無効化させるよ  -->
@@ -53,7 +55,9 @@ export default {
     return {
       user: {},  // ユーザー情報
       chat: [],  // 取得したメッセージを入れる配列
-      input: ''  // 入力したメッセージ
+      input: '',  // 入力したメッセージ
+      langBefore: [],
+      langAfter: []
     }
   },
   created() {
@@ -101,12 +105,18 @@ export default {
       })
       this.scrollBottom()
     },
+    trigger(e) {
+      if(e.keyCode !== 13)return
+    },
     doSend() {
-      this.axios.get(`https://script.google.com/macros/s/AKfycbw9zQVG2vM4jLcOnGk4uaJ89s8-hMoXSPTC5EACNH3uls6P0v8/exec?text=${this.input}&sorce=en&target=ja`)
+      this.axios.get(`https://script.google.com/macros/s/AKfycbw9zQVG2vM4jLcOnGk4uaJ89s8-hMoXSPTC5EACNH3uls6P0v8/exec?text=${this.input}&sorce=${this.langBefore[0]}&target=${this.langAfter[0]}`)
         .then((response) => {
           // console.log(response.data.text)
           if (this.user.uid && this.input.length) {
             // firebase にメッセージを追加
+            console.log(this.input);
+            // console.log(this.langBefore);
+            // console.log(this.langAfter);
             firebase.database().ref('message').push({
               // message: this.input,
               message: response.data.text,

@@ -28,29 +28,33 @@
     </transition-group>
   
     <!-- 入力フォーム -->
-    <form action="" @submit.prevent="doSend" class="form">
+    <form action="" @submit.prevent="doSend" class="form flex">
       <!-- submitが押されたら画面遷移をさせないpreventでdoSendを発動させるよ -->
-      <textarea
-        placeholder="enter in English"
-        v-model="input"
-        :disabled="!user.uid"
-        @keydown.enter="trigger"></textarea>
+      <div class="lang_box flex">
         <p>
-        <select v-model="langBefore" name="" id="">
-          <option value="en">English</option>
-          <option value="ja">Japanese</option>
-        </select>
+          <select v-model="langBefore" name="choice">
+            <option name="choice" value="en" selected >English</option>
+            <option name="choice" value="ja">Japanese</option>
+          </select>
         </p>
         →
         <p>
-        <select v-model="langAfter" name="" id="">
-          <option value="en">English</option>
-          <option value="ja">Japanese</option>
-        </select>
+          <select v-model="langAfter" name="choice" id="">
+            <option name="choice" value="ja" selected >Japanese</option>
+            <option name="choice" value="en">English</option>
+          </select>
         </p>
+      </div>
+      <div class="text_box flex">
+      <textarea
+        placeholder="Enter in the language you want to learn"
+        v-model="input"
+        :disabled="!user.uid"
+        @keydown.enter="trigger"></textarea>
         <!-- v-onv-bindをまとめて書いたv-modelでinputという変数 disabled無効にするuserがidをもっていなければ. keydown.enterはenterキーで動かすってこと exact精密にいうとimportant的な意味なのかな -->
       <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
       <!-- useeridなければ無効化させるよ  -->
+      </div>
     </form>
   </div>
 </template>
@@ -152,6 +156,11 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .header {
   background: #3ab383;
   margin-bottom: 1em;
@@ -165,13 +174,20 @@ export default {
 }
 .form {
   position: fixed;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  flex-direction: column;
   bottom: 0;
   height: 80px;
   width: 100%;
   background: #f5f5f5;
+}
+.lang_box{
+  width: 100%;
+}
+.text_box{
+  width: 100%;
 }
 .form textarea {
   border: 1px solid #ccc;

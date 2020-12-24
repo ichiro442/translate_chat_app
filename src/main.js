@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-
-/* import Firebase */
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+ /* import Firebase */
 import firebase from 'firebase'
 
 Vue.config.productionTip = false
+
+Vue.use(VueAxios, axios)
 
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional

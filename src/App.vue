@@ -4,6 +4,7 @@
       <h1>Chat</h1>
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div v-if="user.uid" key="login">
+        <!-- もしuserのidを持っていればloginできるよ -->
         [{{ user.displayName }}]
         <button type="button" @click="doLogout">Logout</button>
       </div>
@@ -21,6 +22,7 @@
           <div class="item-name">{{ name }}</div>
           <div class="item-message">
             <nl2br tag="div" :text="message"/>
+            <p id="lists"></p>
           </div>
         </div>
       </section>
@@ -28,11 +30,15 @@
   
     <!-- 入力フォーム -->
     <form action="" @submit.prevent="doSend" class="form">
+      <!-- submitが押されたら画面遷移をさせないpreventでdoSendを発動させるよ -->
       <textarea
+        id="input"
         v-model="input"
         :disabled="!user.uid"
         @keydown.enter.exact.prevent="doSend"></textarea>
-      <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
+        <!-- v-onv-bindをまとめて書いたv-modelでinputという変数 disabled無効にするuserがidをもっていなければ. keydown.enterはenterキーで動かすってこと exact精密にいうとimportant的な意味なのかな -->
+      <button id="addBtn" type="submit" :disabled="!user.uid" class="send-button">Send</button>
+      <!-- useeridなければ無効化させるよ  -->
     </form>
   </div>
 </template>
@@ -84,26 +90,38 @@ export default {
     // 受け取ったメッセージをchatに追加
     // データベースに新しい要素が追加されると随時呼び出される
     childAdded(snap) {
+      //childAddedはアイテムのリスト,アイテムのリストへの追加するイベント snapってなに？
       const message = snap.val()
       this.chat.push({
+        // Firebaseから取得したメッセージの配列が入ってる？のをpush送り出す！！scrollBottomへ
         key: snap.key,
         name: message.name,
         image: message.image,
         message: message.message
+        //firebaseのデータベースに入っているやつ keyはよくわかわない
       })
       this.scrollBottom()
     },
     doSend() {
-      if (this.user.uid && this.input.length) {
-        // firebase にメッセージを追加
-        firebase.database().ref('message').push({
-          message: this.input,
-          name: this.user.displayName,
-          image: this.user.photoURL
-        }, () => {
-          this.input = '' // フォームを空にする
+      this.axios.get(`https://script.google.com/macros/s/AKfycbw9zQVG2vM4jLcOnGk4uaJ89s8-hMoXSPTC5EACNH3uls6P0v8/exec?text=${this.input}&sorce=en&target=ja`)
+        .then((response) => {
+          // console.log(response.data.text)
+          if (this.user.uid && this.input.length) {
+            // firebase にメッセージを追加
+            firebase.database().ref('message').push({
+              // message: this.input,
+              message: response.data.text,
+              name: this.user.displayName,
+              image: this.user.photoURL
+            }, () => {
+              this.input = '' // フォームを空にする
+            })
+          }
+
         })
-      }
+        .catch((e) => {
+          alert(e);
+        });
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header class="header">
-      <h1>Chat</h1>
+      <h1>Hello Easy Talk</h1>
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div v-if="user.uid" key="login">
         <!-- もしuserのidを持っていればloginできるよ -->
@@ -11,6 +11,7 @@
       <!-- 未ログイン時にはログインボタンを表示 -->
       <div v-else key="logout">
         <button type="button" @click="doLogin">Login</button>
+        <p>↑Please login on here!</p>
       </div>
     </header>
 

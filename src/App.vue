@@ -53,7 +53,7 @@
         :disabled="!user.uid"
         @keydown.enter="trigger"></textarea>
         <!-- v-onv-bindをまとめて書いたv-modelでinputという変数 disabled無効にするuserがidをもっていなければ. keydown.enterはenterキーで動かすってこと exact精密にいうとimportant的な意味なのかな -->
-      <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
+      <button @click="changed" type="submit" :disabled="!user.uid" class="send-button">Send</button>
       <!-- useeridなければ無効化させるよ  -->
       </div>
     </form>
@@ -73,7 +73,8 @@ export default {
       chat: [],  // 取得したメッセージを入れる配列
       input: '',  // 入力したメッセージ
       langBefore: '',
-      langAfter: ''
+      langAfter: '',
+      click: ''
     }
   },
   created() {
@@ -123,6 +124,9 @@ export default {
     },
     trigger(e) {
       if(e.keyCode !== 13)return
+    },
+     changed () {
+      alert("Enter the message")
     },
     doSend() {
       this.axios.get(`https://script.google.com/macros/s/AKfycbw9zQVG2vM4jLcOnGk4uaJ89s8-hMoXSPTC5EACNH3uls6P0v8/exec?text=${this.input}&sorce=${this.langBefore}&target=${this.langAfter}`)

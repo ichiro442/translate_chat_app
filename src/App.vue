@@ -34,23 +34,30 @@
         <div class="showText_box flex">
           <input
           @click="showText = !showText" 
-            :style="{ color:(showText ? '' : 'red') }" 
+            :style="{ color:(showText ? '' : 'red'), 
+            border:(showText ? '' : '2px solid red') }" 
           type="button" 
-          value="choice your language">
+          value="Choice your language">
         <div 
             v-if="showText"
             class="lang_box flex">
           <p>
-            <select v-model="langBefore" name="choice">
+            <select class="langBefore" v-model="langBefore" name="choice">
               <option name="choice" value="en" selected >English</option>
               <option name="choice" value="ja">Japanese</option>
+              <option name="choice" value="de">German</option>
+              <option name="choice" value="zh-Hant">Chinese</option>
+              <option name="choice" value="th">Thai</option>
             </select>
           </p>
           →
           <p>
-            <select v-model="langAfter" name="choice" id="">
+            <select class="langAfter" v-model="langAfter" name="choice" id="">
               <option name="choice" value="ja" selected >Japanese</option>
               <option name="choice" value="en">English</option>
+              <option name="choice" value="de">German</option>
+              <option name="choice" value="zh-Hant">Chinese</option>
+              <option name="choice" value="th">Thai</option>
             </select>
           </p>
         </div>

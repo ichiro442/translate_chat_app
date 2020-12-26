@@ -20,9 +20,6 @@
 }
 .form {
   position: fixed;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   flex-direction: column;
   bottom: 0;
   height: 80px;
@@ -34,6 +31,15 @@
 }
 .text_box{
   width: 100%;
+}
+.langBefore{
+    background-color: #bbecd9;
+}
+.langAfter{
+    background-color: rgb(250, 233, 204);
+}
+.choice_btn{
+    background-color: green;
 }
 .form textarea {
   border: 1px solid #ccc;

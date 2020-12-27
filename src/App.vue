@@ -13,9 +13,9 @@
         <button type="button" @click="doLogin">Login</button>
       </div>
     </header>
-        <div class="pressBtn_msg flex" v-if="!user.uid" key="login">
-      <p>Press login button !</p>
-    </div>
+    <!-- <div class="pressBtn_msg flex" v-if="!user.uid" key="login">
+        <p>Press login button !</p>
+    </div> -->
 
     <!-- Firebase から取得したリストを描画（トランジション付き） -->
     <transition-group name="chat" tag="div" class="list content">

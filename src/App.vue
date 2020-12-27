@@ -3,17 +3,20 @@
     <header class="header">
       <h1>Hello Easy Talk</h1>
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
-      <div v-if="user.uid" key="login">
+      <div class="loginBtn" v-if="user.uid" key="login">
         <!-- もしuserのidを持っていればloginできるよ -->
-        [{{ user.displayName }}]
-        <button type="button" @click="doLogout">Logout</button>
+        <span class="userName">[{{ user.displayName }}]</span>
+        <button class="button" type="button" @click="doLogout">Logout</button>
       </div>
       <!-- 未ログイン時にはログインボタンを表示 -->
-      <div v-else key="logout">
-        <button type="button" @click="doLogin">Login</button>
+      <div class="loginBtn" v-else key="logout">
+        <button class="button" type="button" @click="doLogin">Login</button>
       </div>
     </header>
-    <div class="pressBtn_msg flex" v-if="!user.uid" key="login">
+    <div
+     class="pressBtn_msg flex"
+     v-if="!user.uid"
+     key="login">
         <p>Press login button !</p>
     </div>
 <div class="" v-if="user.uid" key="logout">
@@ -36,9 +39,10 @@
       <!-- submitが押されたら画面遷移をさせないpreventでdoSendを発動させるよ -->
         <div class="showText_box flex">
           <input
+          class="choiceLangBtn"
           @click="showText = !showText" 
-            :style="{ color:(showText ? '' : 'red'), 
-            border:(showText ? '' : '2px solid red') }" 
+            :style="{ background:(showText ? '' : 'pink'), 
+            border:(showText ? '' : 'none')}" 
           type="button" 
           value="Choice your language">
         <div 
@@ -67,12 +71,11 @@
       </div>
       <div class="text_box flex">
       <textarea
-        placeholder="Enter in the language you want to learn"
         v-model="input"
         :disabled="!user.uid"
         @keydown.enter="trigger"></textarea>
         <!-- v-onv-bindをまとめて書いたv-modelでinputという変数 disabled無効にするuserがidをもっていなければ. keydown.enterはenterキーで動かすってこと exact精密にいうとimportant的な意味なのかな -->
-      <button  @click="changed" type="submit" :disabled="!user.uid" class="send-button">Send</button>
+      <button @click="changed" type="submit" :disabled="!user.uid" class="send-button button">Send</button>
       <!-- <div class="" v-if="showText">ボタンを押してください</div> -->
       <!-- useeridなければ無効化させるよ  -->
       </div>

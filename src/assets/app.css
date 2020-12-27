@@ -14,16 +14,27 @@
   color: #fff;
 }
 .pressBtn_msg{
-  width: 70%;
+  width: 65%;
   height: 9rem;
   margin: 15rem auto;
   background-color: #3ab383;
 }
-.pressBtn_msg p{
-  color: white;
-  border-bottom: 2px solid pink;
-font-size: 1.8rem;
-}
+@media screen and (min-width:500px){
+  /* PC用CSS -------------- */
+  .pressBtn_msg p{
+    color: white;
+    border-bottom: 2px solid pink;
+    font-size: 1.6rem;
+    }
+  }
+  @media screen and (max-width:499px){
+  /* スマホ用CSS -------------- */
+  .pressBtn_msg p{
+    color: white;
+    border-bottom: 2px solid pink;
+    font-size: 1.3rem;
+      }
+  }
 .content {
   margin: 0 auto;
   padding: 0 10px;

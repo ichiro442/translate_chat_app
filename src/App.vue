@@ -13,10 +13,10 @@
         <button type="button" @click="doLogin">Login</button>
       </div>
     </header>
-    <!-- <div class="pressBtn_msg flex" v-if="!user.uid" key="login">
+    <div class="pressBtn_msg flex" v-if="!user.uid" key="login">
         <p>Press login button !</p>
-    </div> -->
-
+    </div>
+<div class="" v-if="user.uid" key="logout">
     <!-- Firebase から取得したリストを描画（トランジション付き） -->
     <transition-group name="chat" tag="div" class="list content">
       <section v-for="{ key, name, image, message } in chat" :key="key" class="item">
@@ -29,6 +29,8 @@
         </div>
       </section>
     </transition-group>
+</div>
+
     <!-- 入力フォーム -->
     <form action="" @submit.prevent="doSend" class="form flex">
       <!-- submitが押されたら画面遷移をさせないpreventでdoSendを発動させるよ -->

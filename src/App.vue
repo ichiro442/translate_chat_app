@@ -6,11 +6,11 @@
       <div class="loginBtn" v-if="user.uid" key="login">
         <!-- もしuserのidを持っていればloginできるよ -->
         <span class="userName">[{{ user.displayName }}]</span>
-        <button class="button" type="button" @click="doLogout">Logout</button>
+        <button type="button" @click="doLogout">Logout</button>
       </div>
       <!-- 未ログイン時にはログインボタンを表示 -->
       <div class="loginBtn" v-else key="logout">
-        <button class="button" type="button" @click="doLogin">Login</button>
+        <button type="button" @click="doLogin">Login</button>
       </div>
     </header>
     <div

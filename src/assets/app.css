@@ -13,6 +13,17 @@
   padding: 0.4em 0.8em;
   color: #fff;
 }
+.pressBtn_msg{
+  width: 70%;
+  height: 9rem;
+  margin: 15rem auto;
+  background-color: #3ab383;
+}
+.pressBtn_msg p{
+  color: white;
+  border-bottom: 2px solid pink;
+font-size: 1.8rem;
+}
 .content {
   margin: 0 auto;
   padding: 0 10px;

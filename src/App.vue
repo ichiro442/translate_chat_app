@@ -11,9 +11,11 @@
       <!-- 未ログイン時にはログインボタンを表示 -->
       <div v-else key="logout">
         <button type="button" @click="doLogin">Login</button>
-        <p>↑Please login on here!</p>
       </div>
     </header>
+        <div class="pressBtn_msg flex" v-if="!user.uid" key="login">
+      <p>Press login button !</p>
+    </div>
 
     <!-- Firebase から取得したリストを描画（トランジション付き） -->
     <transition-group name="chat" tag="div" class="list content">
@@ -27,7 +29,6 @@
         </div>
       </section>
     </transition-group>
-  
     <!-- 入力フォーム -->
     <form action="" @submit.prevent="doSend" class="form flex">
       <!-- submitが押されたら画面遷移をさせないpreventでdoSendを発動させるよ -->

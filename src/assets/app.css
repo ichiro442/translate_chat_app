@@ -22,17 +22,14 @@
 }
 /* press login button message */
 .pressBtn_msg{
-  width: 65%;
+  width: 30%;
   height: 9rem;
   margin: 15rem auto;
   background-color: #3ab383;
+  flex-direction: column;
 }
 @media screen and (min-width:500px){
   /* PC用CSS -------------- */
-  .pressBtn_msg{
-    width: 30%;
-  }
-  
   .pressBtn_msg p{
     color: white;
     border-bottom: 2px solid pink;
@@ -41,6 +38,9 @@
   }
   @media screen and (max-width:499px){
   /* スマホ用CSS -------------- */
+  .pressBtn_msg{
+    width: 60%;
+  }
   .pressBtn_msg p{
     color: white;
     border-bottom: 2px solid pink;

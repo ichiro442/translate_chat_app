@@ -16,7 +16,9 @@
     <div
      class="pressBtn_msg flex"
      v-if="!user.uid"
-     key="login">
+     key="login"
+     >
+        <p>Use on google !</p>
         <p>Press login button !</p>
     </div>
 <div class="" v-if="user.uid" key="logout">

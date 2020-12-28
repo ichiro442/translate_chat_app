@@ -83,13 +83,12 @@
       </div>
     </form>
   </div>
-  <!-- <adsense
-      ad-client="★1"
-      ad-slot="★2"
-      ad-style="★3"
-      ad-format="★4">
-    </adsense> -->
 </template>
-
 <script src="./app.js"></script>
+  <adsense
+      ad-client="ca-pub-2223806313871416"
+      ad-slot="2023708125"
+      ad-style="display:block"
+      ad-format="auto">
+    </adsense>
 

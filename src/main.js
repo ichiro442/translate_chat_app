@@ -4,6 +4,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
  /* import Firebase */
 import firebase from 'firebase'
+import VueAdsense from 'vue-adsense'
+
+// Google Adsense 用
+Vue.component('adsense', VueAdsense)
 
 Vue.config.productionTip = false
 

@@ -72,17 +72,24 @@
         </div>
       </div>
       <div class="text_box flex">
-      <textarea
-        v-model="input"
-        :disabled="!user.uid"
-        @keydown.enter="trigger"></textarea>
-        <!-- v-onv-bindをまとめて書いたv-modelでinputという変数 disabled無効にするuserがidをもっていなければ. keydown.enterはenterキーで動かすってこと exact精密にいうとimportant的な意味なのかな -->
-      <button @click="changed" type="submit" :disabled="!user.uid" class="send-button button">Send</button>
-      <!-- <div class="" v-if="showText">ボタンを押してください</div> -->
-      <!-- useeridなければ無効化させるよ  -->
+        <textarea
+          v-model="input"
+          :disabled="!user.uid"
+          @keydown.enter="trigger"></textarea>
+          <!-- v-onv-bindをまとめて書いたv-modelでinputという変数 disabled無効にするuserがidをもっていなければ. keydown.enterはenterキーで動かすってこと exact精密にいうとimportant的な意味なのかな -->
+        <button @click="changed" type="submit" :disabled="!user.uid" class="send-button button">Send</button>
+        <!-- <div class="" v-if="showText">ボタンを押してください</div> -->
+        <!-- useeridなければ無効化させるよ  -->
       </div>
     </form>
   </div>
+  <!-- <adsense
+      ad-client="★1"
+      ad-slot="★2"
+      ad-style="★3"
+      ad-format="★4">
+    </adsense> -->
 </template>
 
 <script src="./app.js"></script>
+

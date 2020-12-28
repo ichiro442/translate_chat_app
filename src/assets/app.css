@@ -28,14 +28,11 @@
   background-color: #3ab383;
   flex-direction: column;
 }
-@media screen and (min-width:500px){
-  /* PC用CSS -------------- */
-  .pressBtn_msg p{
-    color: white;
-    border-bottom: 2px solid pink;
-    font-size: 1.6rem;
-    }
-  }
+.pressBtn_msg p{
+  color: white;
+  border-bottom: 2px solid pink;
+  font-size: 1.6rem;
+}
   @media screen and (max-width:499px){
   /* スマホ用CSS -------------- */
   .pressBtn_msg{

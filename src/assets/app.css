@@ -16,8 +16,9 @@
   margin-bottom: 1em;
   padding: 0.4em 0.8em;
   color: #fff;
+  flex-direction: column;
 }
-　.loginBtn{
+.loginBtn{
   color: #fff;
   margin-right: 0.4rem;
 }

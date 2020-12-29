@@ -15,6 +15,7 @@
         <button class="loginBtn f_btn" type="button" @click="doFacebookLogin">Facebook Login</button>
       </div>
     </header>
+<section class="flex">
     <div
      class="pressBtn_msg flex"
      v-if="!user.uid"
@@ -23,21 +24,21 @@
         <p>Use on Google !</p>
         <p>Press login button !</p>
     </div>
-<div class="" v-if="user.uid" key="logout">
-    <!-- Firebase から取得したリストを描画（トランジション付き） -->
-    <transition-group name="chat" tag="div" class="list content">
-      <section v-for="{ key, name, image, message } in chat" :key="key" class="item">
-        <div class="item-image"><img :src="image" width="40" height="40"></div>
-        <div class="item-detail">
-          <div class="item-name">{{ name }}</div>
-          <div class="item-message">
-            <nl2br tag="div" :text="message"/>
+  <div class="" v-if="user.uid" key="logout">
+      <!-- Firebase から取得したリストを描画（トランジション付き） -->
+      <transition-group name="chat" tag="div" class="list content">
+        <section v-for="{ key, name, image, message } in chat" :key="key" class="item">
+          <div class="item-image"><img :src="image" width="40" height="40"></div>
+          <div class="item-detail">
+            <div class="item-name">{{ name }}</div>
+            <div class="item-message">
+              <nl2br tag="div" :text="message"/>
+            </div>
           </div>
-        </div>
-      </section>
-    </transition-group>
-</div>
-
+        </section>
+      </transition-group>
+  </div>
+</section>
     <!-- 入力フォーム -->
     <form action="" @submit.prevent="doSend" class="form flex">
       <!-- submitが押されたら画面遷移をさせないpreventでdoSendを発動させるよ -->

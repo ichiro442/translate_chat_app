@@ -17,16 +17,13 @@
   padding: 0.4em 0.8em;
   color: #fff;
 }
-.loginBtns{
-}
-.loginBtn{
+　.loginBtn{
   color: #fff;
-  margin-right: 1rem;
+  margin-right: 0.4rem;
 }
 .g_btn{
   background-image: url("../assets/img/google.jpg");
   background-size: cover;
-  /* background: linear-gradient(to left, #6d9ce7, #20f18c , hsl(64, 95%, 60%) , #f52815); */
 }
 .t_btn{
   background-color: #1DA1F2;

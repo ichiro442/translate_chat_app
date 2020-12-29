@@ -20,7 +20,7 @@
      v-if="!user.uid"
      key="login"
      >
-        <p>Use on google !</p>
+        <p>Use on Google !</p>
         <p>Press login button !</p>
     </div>
 <div class="" v-if="user.uid" key="logout">

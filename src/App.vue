@@ -5,8 +5,8 @@
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div class="loginBtn" v-if="user.uid" key="login">
         <!-- もしuserのidを持っていればloginできるよ -->
-        <span class="userName">[{{ user.displayName }}]</span>
-        <button type="button" @click="doLogout">Logout</button>
+        <span class="userName">[ {{ user.displayName }} ]</span>
+        <button class="logoutBtn" type="button" @click="doLogout">Logout</button>
       </div>
       <!-- 未ログイン時にはログインボタンを表示 -->
       <div class="loginBtns" v-else key="logout">

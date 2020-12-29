@@ -1,10 +1,12 @@
 import './assets/app.css'
+// import VueAdsense from 'vue-adsense'
 // firebase モジュール
 import firebase from 'firebase'
 // 改行を <br> タグに変換するモジュール
 import Nl2br from 'vue-nl2br'
 export default {
   components: { Nl2br },
+  // 'adsense': VueAdsense,
   data() {
     return {
       user: {},  // ユーザー情報

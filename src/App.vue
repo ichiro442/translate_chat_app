@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header class="header">
+    <header class="header flex">
       <h1>Hello Easy Talk</h1>
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div class="loginBtn" v-if="user.uid" key="login">

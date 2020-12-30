@@ -51,12 +51,13 @@
   color: white;
   border-bottom: 2px solid pink;
   font-size: 1.6rem;
+  margin: 0.4rem;
 }
   @media screen and (max-width:499px){
   /* スマホ用CSS -------------- */
   .pressBtn_msg{
-    width: 60%;
-    margin: 11rem auto;
+    width: 80%;
+    margin: 9rem auto;
 
   }
   .pressBtn_msg p{
